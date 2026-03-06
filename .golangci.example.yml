@@ -1,0 +1,17 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - awesome_linter
+
+  settings:
+    custom:
+      awesome_linter:
+        type: module
+        description: The description of the linter. This is optional, but shows up when running `golangci-lint linters`.
+        settings:
+          english_only: true
+          deny_begin_upper: true
+          deny_special_symbols: true
+          check_sensitive: true

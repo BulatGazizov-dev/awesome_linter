@@ -1,0 +1,5 @@
+custom-gcl
+coverage.txt
+.idea
+linter/testdata/a/vendor
+linter/coverage.txt

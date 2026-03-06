@@ -1,0 +1,53 @@
+package lower
+
+import (
+	"go.uber.org/zap"
+	"log/slog"
+)
+
+func someFun() {
+	// Zap:
+
+	logger := zap.NewExample()
+	defer logger.Sync()
+
+	logger.Info("upper case letter") // want "log messages must begin with a lowercase letter."
+	logger.Info("jUST message")
+	logger.Info("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+	logger.Info("однозначно сообщение с МАЛЕНЬКОЙ буквы")
+
+	logger.Warn("upper case letter")                    // want "log messages must begin with a lowercase letter."
+	logger.Warn("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+
+	logger.Debug("upper case letter")                    // want "log messages must begin with a lowercase letter."
+	logger.Debug("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+
+	logger.Fatal("upper case letter")                    // want "log messages must begin with a lowercase letter."
+	logger.Fatal("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+
+	logger.Error("upper case letter")                    // want "log messages must begin with a lowercase letter."
+	logger.Error("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+
+	// slog:
+
+	slog.Info("upper case letter") // want "log messages must begin with a lowercase letter."
+	slog.Info("jUST message")
+	slog.Info("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+	slog.Info("однозначно сообщение с МАЛЕНЬКОЙ буквы")
+
+	slog.Warn("upper case letter") // want "log messages must begin with a lowercase letter."
+	slog.Warn("jUST message")
+	slog.Warn("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+	slog.Warn("однозначно сообщение с МАЛЕНЬКОЙ буквы")
+
+	slog.Debug("upper case letter") // want "log messages must begin with a lowercase letter."
+	slog.Debug("jUST message")
+	slog.Debug("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+	slog.Debug("однозначно сообщение с МАЛЕНЬКОЙ буквы")
+
+	slog.Debug("upper case letter") // want "log messages must begin with a lowercase letter."
+	slog.Debug("jUST message")
+	slog.Debug("однозначно сообщение с БОЛЬШОЙ буквы") // want "log messages must begin with a lowercase letter."
+	slog.Debug("однозначно сообщение с МАЛЕНЬКОЙ буквы")
+
+}
