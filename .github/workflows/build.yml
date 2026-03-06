@@ -1,0 +1,38 @@
+name: Build
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@master
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: 1.26
+          cache: true
+
+      - name: Install lint
+        run: |
+          curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.11.1
+
+      - name: Install deps
+        run: |
+          make test-deps
+
+      - name: Test & Publish
+        run: |
+          cd linter
+          go test -v -covermode=atomic -coverprofile=coverage.txt ./...
+          cat coverage.txt
+
+      - name: Build
+        run: |
+          make build

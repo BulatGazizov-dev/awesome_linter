@@ -1,5 +1,5 @@
 version: v2.10.1
 plugins:
 
-  - module: 'github.com/bulatgazizov/awesome_linter'
+  - module: 'github.com/BulatGazizov-dev/awesome_linter'
     path: ./linter

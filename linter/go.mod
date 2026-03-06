@@ -1,4 +1,4 @@
-module github.com/bulatgazizov/awesome_linter
+module github.com/BulatGazizov-dev/awesome_linter
 
 go 1.26.0
 

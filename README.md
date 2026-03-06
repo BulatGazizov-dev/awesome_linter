@@ -3,9 +3,7 @@
 ```bash
 make build 
 ```
-
-Note: If building manually via golangci-lint custom -v, ensure your .golangci.yml points to the correct local module path.
-
+g
 ## Usage
 - Rename .golangci.example.yml to .golangci.yml.
 - Configure your rules under linters-settings.custom.awesome_linter.`
